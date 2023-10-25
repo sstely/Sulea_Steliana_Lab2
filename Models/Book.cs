@@ -10,8 +10,12 @@ namespace Sulea_Steliana_Lab2.Models
 
         [Display(Name = "Book Title")]
         public string Title { get; set; }
+
         public int? AuthorID { get; set; }
         public Author? Author { get; set; } //navigation property
+
+        public int? PublisherID { get; set; }
+        public Publisher? Publisher { get; set; } //navigation property
 
         [Column(TypeName = "decimal(6,2)")]
         public decimal Price { get; set; }
@@ -19,7 +23,7 @@ namespace Sulea_Steliana_Lab2.Models
         [DataType(DataType.Date)]
         public DateTime PublishingDate { get; set; }
 
-        public int? PublisherID { get; set; }
-        public Publisher? Publisher { get; set; } //navigation property
+        public ICollection<BookCategory>? BookCategories { get; set; }
+
     }
 }
