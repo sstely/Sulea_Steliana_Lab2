@@ -9,6 +9,8 @@ namespace Sulea_Steliana_Lab2.Models
         public int ID { get; set; }
 
         [Display(Name = "Book Title")]
+        [Required(ErrorMessage = "Campul Title este obligatoriu.")]
+        [StringLength(150, MinimumLength = 3)]
         public string Title { get; set; }
 
         public int? AuthorID { get; set; }
@@ -18,6 +20,7 @@ namespace Sulea_Steliana_Lab2.Models
         public Publisher? Publisher { get; set; } //navigation property
 
         [Column(TypeName = "decimal(6,2)")]
+        [Range(0.01, 500)]
         public decimal Price { get; set; }
 
         [DataType(DataType.Date)]
